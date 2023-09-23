@@ -1,0 +1,77 @@
+1 <meta http-equiv="X-UA-Compatible" content="IE=edge">  <!-- tells IE to render the page in the most up-to-date and standards-compliant mode available, regardless of the version of IE being used. --> 
+
+
+2 In the provided code, --fw-400 is set to 500, and --fw-700 is set to 600, which may seem unusual since font weights are typically set to values like 400 (normal) or 700 (bold). However, this kind of customization allows you to map these custom property values to specific font weights that align with your design system or the particular font you're using. In this case, you can interpret --fw-400 as a slightly heavier font weight, and --fw-700 as a bolder font weight, even though they are using numeric values that might not correspond directly to the common font weight values.
+
+
+3 ul[role="list"], ol[role="list"] { list-style: none; } when you apply this CSS rule to your HTML document, it effectively removes the default list markers from <ul> and <ol> elements that are specifically marked with the role attribute set to "list." This can be useful in cases where you want to use custom styling or formatting for these lists and don't want the default list markers to be displayed.
+
+
+4 by using html:focus-within in combination with scroll-behavior: smooth;, you enable smooth scrolling for the entire HTML document when any of its descendants (elements within the page) receive keyboard focus. This can enhance the user experience by providing a smoother and more visually appealing scrolling effect when navigating within the same web page.
+
+
+5 a:not([class]) { text-decoration-skip-ink: auto; } firstly, it selects anchor links that don't have any class assigned to them. Secondly, Setting it to "auto" means that the browser will automatically determine how to skip the ink (the area covered by the text and its decorations) to create a visually pleasing underline or overline effect. This typically involves avoiding excessive overlap with the descenders and ascenders of the text characters. If confused, check https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-skip-ink
+
+
+6 input, button, textarea, select { font: inherit; } Setting font to "inherit" means that these form elements will inherit the font styles (including font family, font size, font weight, etc.) from their parent elements, such as the surrounding text or container. In other words, they will use the same font styles as the text around them.
+
+
+7 @media (prefers-reduced-motion: reduce) { ... }: This is a media query that targets devices or user settings that prefer reduced motion. The prefers-reduced-motion media feature is a user preference that can be set in the operating system or browser settings. When the user prefers reduced motion, it indicates a preference for less animation and motion effects on web pages. The @media rule allows you to apply CSS styles selectively based on certain conditions, such as screen size, orientation, or user preferences. html:focus-within { scroll-behavior: auto; }:
+Inside the media query block, this rule changes the scrolling behavior of the <html> element when any of its descendants are in a "focused" state. Specifically, it sets scroll-behavior to "auto" for smoother scrolling when navigating within the same web page. This change is made to provide a more comfortable and less motion-intensive scrolling experience for users who prefer reduced motion. *, *::before, *::after { ... }: This rule targets all elements, as well as their ::before and ::after pseudo-elements. It overrides animation and transition properties to reduce or 
+eliminate motion: animation-duration: 0.01ms !important; and animation-iteration-count: 1 !important;: These properties set the duration and iteration count of animations to extremely short values. By doing so, it effectively minimizes the duration of animations and allows them to complete almost instantaneously. The !important declaration ensures that these values take precedence over other CSS rules. transition-duration: 0.01ms !important;: This property shortens the duration of CSS transitions in a similar manner. scroll-behavior: auto !important;: 
+This property restores the default scrolling behavior to "auto" for all elements, overriding any custom scroll-behavior settings. This change ensures that scrolling behaves normally even when custom scrolling animations are present on the page.
+
+
+8 The !important declarations ensure that these styles take precedence over other styles that might be defined elsewhere in your CSS, even if those other styles are more specific or come later in the stylesheet. This can be useful when you want to ensure that certain styles are consistently applied across your entire website, regardless of other conflicting styles. If you remove the !important declarations, the styles would still apply, but they would be subject to the normal CSS specificity rules. 
+This means that if other styles with equal or higher specificity (such as styles applied directly to specific elements or using more specific selectors) are defined later in your stylesheet, they would take precedence, and the styles in your code would not override them.
+
+
+9 place-content: center;: The place-content property is a shorthand property in CSS Grid that sets both the align-content and justify-content properties to the value "center." It effectively centers the content both horizontally and vertically within the grid container. align-content controls the vertical alignment of the grid items within the grid container. justify-content controls the horizontal alignment of the grid items within the grid container.
+
+
+10 gap: var(--gap, 1rem); If --gap is defined with a value (e.g., --gap: 20px;), then the gap size will be set to that value (20px in this case). If --gap is not defined or its value is not available for any reason, then the gap size will default to 1rem.
+
+
+11  .flow > *:where(:not(:first-child)) { margin-top: var(--flow-spacer, 1em); } .flow: This is a CSS class selector that targets elements with the class "flow." In order for the rules within this code block to apply, an element must have the "flow" class. > *: This part of the selector targets all direct child elements (*) of elements with the "flow" class. In other words, it selects the immediate children of elements with the class "flow." :where(...): The :where() pseudo-class is used to group one or more selectors together. In this case, it groups the selectors :not(:first-child). 
+The :where() pseudo-class doesn't have any impact on the specificity or behavior of the selector; it's simply used for organization and readability. :not(:first-child): This selector targets all child elements that are not the first child of their parent element (i.e all children of flow were selected, there is only one child called flex so, all children except the first one have a margin top applied to them of 1 em). In other words, it selects all elements that are not the first child within the "flow" elements. margin-top: var(--flow-spacer, 1em);: 
+This rule sets the top margin (margin-top) for the selected elements. It uses a CSS variable --flow-spacer to define the margin value. var(--flow-spacer, 1em) retrieves the value of the --flow-spacer CSS variable. If the variable is defined and has a value, it will use that value as the margin-top. If the variable is not defined or has no value, it will default to 1em as the margin-top value.
+
+
+12 The CSS property padding-block is used to set the padding on the block-axis of an element. The block-axis is the vertical axis in most writing modes (such as top to bottom in horizontal writing mode or left to right in vertical writing mode).
+
+
+13 min(95%, 70rem): This is a CSS function called min(). It takes two values as arguments and returns the smaller of the two values.So, the width property with min(95%, 70rem) means that the element's width will be the smaller of these two values. If the available width in the parent container is less than 70rem, the element's width will be 95% of the available width. If the available width in the parent container is greater than or equal to 70rem, the element's width will be a fixed 70rem. This approach is often used in responsive web design to ensure that 
+an element scales down proportionally to fit smaller screens (when the parent container's width is less than 70rem) while maintaining a maximum width of 70rem on larger screens.
+
+
+14 The CSS property margin-inline is used to set the margin on the inline axis of an element. The inline axis depends on the writing mode of the text, and it is typically horizontal in most Western writing modes (left to right). margin-inline: This property sets the margin on the inline axis of an element. It can be used to control the horizontal spacing of an element within its containing block. auto: When you set a margin value to "auto" for the inline axis, it typically means that the element's margin will be automatically adjusted to center the element
+within its containing block along the inline axis. In other words, it horizontally centers the element within its parent container.
+
+
+15 box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25); 2.5rem: This is the horizontal offset of the shadow from the element. It specifies that the shadow will be shifted 2.5 rems to the right of the element. 3.75rem: This is the vertical offset of the shadow from the element. It specifies that the shadow will be shifted 3.75 rems downwards from the element. 3rem: This is the blur radius of the shadow. It determines how blurry or diffuse the shadow will be. A larger value creates a more blurred effect. In this case, it's set to 3 rems. 
+-3rem: This is the spread radius of the shadow. It can be used to expand or shrink the size of the shadow. In this case, it's set to -3 rems, which means the shadow will be 3 rems smaller than the element itself. This creates an inner shadow effect. hsl(var(--clr-secondary-400) / 0.25): This part defines the color of the shadow. It uses an HSL (Hue, Saturation, Lightness) color value that is based on a CSS variable --clr-secondary-400. The / 0.25 part reduces the opacity of the color to 25%, making the shadow semi-transparent.
+ The result is that the shadow is derived from the --clr-secondary-400 color but is lighter and semi-transparent.
+
+
+ 16 .testimonial.quote: This is a CSS selector that targets elements with both the "testimonial" class and the "quote" class. In other words, it selects elements that have both of these classes applied to them. background-image: url("./images/bg-pattern-quotation.svg");: This line sets the background image for the selected elements using the background-image property. It specifies the path to an SVG image file named "bg-pattern-quotation.svg" located in the "./images/" directory relative to the stylesheet's location. This SVG image will be used as the background for the selected elements. background-repeat: no-repeat;: This property specifies that the background image should not be repeated. It ensures that the background image is displayed only once and is not tiled or repeated. background-position: top right 10%;: This property determines the initial position of the background image within the element's background area. It has three parts: top: This value sets the vertical position of the background image to be at the top of the element's background area. right: This value sets the horizontal position of the background image to be at the right side of the element's background area. 10%: This value sets an offset from the right edge of the background area. It positions the background image 10% from the right edge.
+
+ 
+ 17 A square aspect ratio (1:1) is often used when you want to create elements that have equal width and height, such as square images or containers. The aspect-ratio property is useful for maintaining the aspect ratio of elements in responsive web design, ensuring that they retain their intended proportions even when the dimensions of the parent container change.
+
+
+ 18 .testimonial > p:first-of-type: This selector targets the first <p> (paragraph) element that is a direct child of an element with the class "testimonial." .testimonial > p:last-of-type: This selector targets the last <p> (paragraph) element that is a direct child of an element with the class "testimonial."
+
+
+ 19 direct children of flex and grid parents no longer have collapsing margins so margins may become double spaced. Take it into consideration !
+
+
+ 20 we explicitly defined columns in grip but we didnt explicitly define no. of rows. The grid makes new rows for us according to our needs so these are called implicit rows
+
+
+ 21 .testimonial:last-child: This selector targets any element with the class testimonial that is also the last child of its parent element, regardless of the parent's class or tag name
+
+
+ 22 every set of quotation marks in grid template area is a row and every name in those quotation marks is a column
+
+
+ 23 grid-auto-rows: 1fr; grid-auto-columns: 1fr; are used because in grid template area, it makes the size of the colums and rows according to our content as we didnt explicitly set any columns or rows this time around, these two lines state that whenever a row or a column is automatically generated, 1 fr will be its size, so it ensures that implicitly created rows and columns can be of a predictable size.

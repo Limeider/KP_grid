@@ -1,1 +1,1 @@
-# KP_grid
+# learn-grid-the-easy-way
